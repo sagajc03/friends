@@ -7,6 +7,13 @@
                 <%= link_to 'About Us', home_about_path, class: "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"%>
                 <%= link_to 'Friends', friends_path, class: "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"%>
                 <%= link_to 'Add Friends', new_friend_path, class: "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"%>
+                <% if user_signed_in? %>
+                    <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"%>
+                    <%= link_to 'Edit Profile', edit_user_registration_path, class: "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"%>
+                <% else %>
+                    <%= link_to 'Sign Up', new_user_registration_path, class: "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"%>
+                    <%= link_to 'Sign In', new_user_session_path, class: "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"%>
+                <% end %>
             </div>
         </div>
     </div>

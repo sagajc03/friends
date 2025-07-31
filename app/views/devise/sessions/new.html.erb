@@ -1,0 +1,26 @@
+<h2 class="font-bold text-4xl">Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field py-3">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full"]%>
+  </div>
+
+  <div class="field py-3">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" , class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full"]%>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field py-3">
+      <%= f.check_box :remember_me ,class: ["w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"]%>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions py-3">
+    <%= f.submit "Log in" ,class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer"%>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links", class: "actions py-3" %>

@@ -6,6 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csp_meta_tag %>
+    <%= csrf_meta_tags %>
 
     <%= yield :head %>
 
@@ -15,7 +16,6 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -23,7 +23,16 @@
 
   <body>
 
+    
+
     <%= render 'home/header' %>
+
+    <% if notice %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+    <p class="alert py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block"><%= alert %></p>
+    <% end %>
     <main class="p-10">
       <%= yield %>
     </main>
