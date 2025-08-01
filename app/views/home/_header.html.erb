@@ -1,11 +1,9 @@
 <nav class="bg-gray-800 ">
     <div class="items-center flex justify-between">
-        <div class="p-5 text-amber-50 text-2xl"><h2>Friends app</h2></div>
+        <div class="p-5 text-amber-50 text-2xl hover:bg-gray-700 hover:text-white"><h2><%= link_to 'Friends App', friends_path%></h2></div>
         <div class="">
             <div class="px-5 flex space-x-4">
-                <%= link_to 'Friend App', root_path, class: "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"%>
                 <%= link_to 'About Us', home_about_path, class: "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"%>
-                <%= link_to 'Friends', friends_path, class: "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"%>
                 <%= link_to 'Add Friends', new_friend_path, class: "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"%>
                 <% if user_signed_in? %>
                     <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"%>
